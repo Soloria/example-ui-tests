@@ -34,10 +34,10 @@ namespace WebDrive
             return this;
         }
 
-        public MainPage ClickLoginButton()
+        public FlightFinderPage ClickLoginButton()
         {
             LoginButton.Click();
-            return this;
+            return new FlightFinderPage(SessionManager.getDriver());
         }
     }
     
