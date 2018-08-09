@@ -20,6 +20,8 @@ namespace WebDrive
             _driver.Quit();
         }
 
+        public static string Path = "http://newtours.demoaut.com/";
+
         public static IWebDriver getDriver() => _driver;
     }
 }
