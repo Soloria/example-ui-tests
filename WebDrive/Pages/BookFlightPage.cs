@@ -2,7 +2,6 @@
 
 namespace WebDrive
 {
-    using System.Net.WebSockets;
     using OpenQA.Selenium;
     using SeleniumExtras.PageObjects;
     using JetBrains.Annotations;

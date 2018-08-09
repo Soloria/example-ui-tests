@@ -2,7 +2,6 @@
 
 namespace WebDrive
 {
-    using System.Linq;
     using OpenQA.Selenium;
     using SeleniumExtras.PageObjects;
     using JetBrains.Annotations;
@@ -11,8 +10,8 @@ namespace WebDrive
     {
         public FlightFinderPage(IWebDriver driver) : base(driver) {}
 
-        [FindsBy(How = How.TagName, Using ="img")]
-        private IWebElement HeaderImage { get; [UsedImplicitly] set; }
+        [FindsBy(How = How.CssSelector, Using = "img[src*='mast_flightfinder']")]
+        public IWebElement FlightFinderHeader { get; [UsedImplicitly] set; }
 
         [FindsBy(How = How.CssSelector, Using ="(input[type='radio'][value='oneway'])")]
         private IWebElement OneWayTripType { get; [UsedImplicitly] set; }
@@ -41,6 +40,7 @@ namespace WebDrive
         [FindsBy(How = How.Name, Using ="findFlights")]
         private IWebElement ContinueButton { get; [UsedImplicitly] set; }
 
-        public string HeaderText => HeaderImage.GetAttribute("src").Split("/").LastOrDefault();
+       
+
     }
 }
