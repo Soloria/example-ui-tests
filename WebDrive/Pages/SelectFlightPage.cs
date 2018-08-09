@@ -11,8 +11,8 @@ namespace WebDrive
     {
        public SelectFlightPage(IWebDriver driver) : base(driver) {}
 
-        [FindsBy(How = How.TagName, Using ="img")]
-        private IWebElement HeaderImage { get; [UsedImplicitly] set; }
+        [FindsBy(How = How.CssSelector, Using = "(img[src*='mast_book]")]
+        private IWebElement HeaderBookAFlight { get; [UsedImplicitly] set; }
 
         [FindsBy(How = How.CssSelector, Using ="(input[name='outFlight'][value^='Unified Airlines$361'])")]
         private IWebElement OutUnifiedAirlines363 { get; [UsedImplicitly] set; }
@@ -22,7 +22,7 @@ namespace WebDrive
 
         [FindsBy(How = How.Name, Using ="reserveFlights")]
         private IWebElement ContinueButton { get; [UsedImplicitly] set; }
+        
 
-        public string HeaderText => HeaderImage.GetAttribute("src").Split("/").LastOrDefault();
     }
 }
