@@ -5,10 +5,7 @@
     public class ExampleCase
     {
         [OneTimeSetUp]
-        public static void Start()
-        {
-            SessionManager.Open(SessionManager.Path);
-        }
+        public static void Start() => SessionManager.Open(SessionManager.Path);
 
         [Test]
         [Order(order: 1)]
@@ -22,9 +19,6 @@
         }
 
         [OneTimeTearDown]
-        public static void Clean()
-        {
-            SessionManager.Close();
-        }
+        public static void Clean() => SessionManager.Close();
     }
 }
