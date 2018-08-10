@@ -4,22 +4,21 @@ namespace WebDrive
     using System;
     using Microsoft.Extensions.Configuration;
 
-    public class Config
+    public static class Config
     {
-        public void StartUp()
+        public static void StartUp()
         {
-            
             if (root != null) return;
             var builder = new ConfigurationBuilder()
-                .SetBasePath("C:\\git/Webdrive")
-                .AddJsonFile("config/core.json", optional: false, reloadOnChange: true);
+                .SetBasePath("C:\\Webdrive")
+                .AddJsonFile("config/config.json", optional: true, reloadOnChange: true);
 
             root = builder.Build();
         }
 
-        private IConfigurationRoot root;
+        private static IConfigurationRoot root;
 
-        public T GetValue<T>(string key, T defaultValue = default)
+        public static T GetValue<T>(string key, T defaultValue = default)
         {
             return root?[key] == null ? defaultValue : ProcessTypes<T>(root[key]);
         }

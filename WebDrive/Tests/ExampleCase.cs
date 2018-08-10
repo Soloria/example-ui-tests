@@ -1,5 +1,6 @@
 ﻿namespace WebDrive
 {
+   
     using NUnit.Framework;
 
     public class ExampleCase
@@ -12,8 +13,8 @@
         public void LogIn()
         {
             new MainPage(SessionManager.getDriver())
-                .InputName("")
-                .InputPassword("")
+                .InputName(Config.GetValue<string>("username"))
+                .InputPassword(Config.GetValue<string>("password"))
                 .ClickLoginButton();
             Assert.IsTrue(new FlightFinderPage(SessionManager.getDriver()).FlightFinderHeader.Displayed);
         }

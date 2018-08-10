@@ -10,6 +10,7 @@ namespace WebDrive
 
         public static void Open(string text)
         {
+            Config.StartUp();
             _driver = new ChromeDriver();
             _driver.Manage().Window.Maximize();
             _driver.Url = text;
