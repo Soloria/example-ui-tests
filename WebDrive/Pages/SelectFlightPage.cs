@@ -21,7 +21,23 @@ namespace WebDrive
 
         [FindsBy(How = How.Name, Using ="reserveFlights")]
         private IWebElement ContinueButton { get; [UsedImplicitly] set; }
-        
 
+        public SelectFlightPage ChooseOutFlight()
+        {
+            OutUnifiedAirlines363.Click();
+            return this;
+        }
+
+        public SelectFlightPage ChooseInFlight()
+        {
+            InBlueSkiesAirlines631.Click();
+            return this;
+        }
+
+        public BookFlightPage ClickContinueButton()
+        {
+            ContinueButton.Click();
+            return new BookFlightPage(SessionManager.getDriver());
+        }
     }
 }
