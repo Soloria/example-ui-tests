@@ -22,5 +22,23 @@ namespace WebDrive
         [FindsBy(How = How.CssSelector, Using ="(img[src*='Logout'])")]
         private IWebElement LogoutButton { get; [UsedImplicitly] set; }
 
+        public FlightFinderPage ClickBackToFlightsButton()
+        {
+            BackToFlightsButton.Click();
+            return new FlightFinderPage(SessionManager.getDriver());
+        }
+
+        public MainPage ClickBackToHomeButton()
+        {
+            BackToHomeButton.Click();
+            return new MainPage(SessionManager.getDriver());
+        }
+
+        public SignOnPage ClickLogoutButton()
+        {
+            LogoutButton.Click();
+            return new SignOnPage(SessionManager.getDriver());
+        }
+
     }
 }
