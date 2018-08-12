@@ -82,14 +82,14 @@ namespace WebDrive
         public BookFlightPage ChooseMealPreference(string meal)
         {
             var Meal = new SelectElement(Meals);
-            Meal.SelectByValue(meal);
+            Meal.SelectByText(meal);
             return this;
         }
 
         public BookFlightPage ChooseCardType(string card)
         {
             var Card = new SelectElement(CardTypes);
-            Card.SelectByValue(card);
+            Card.SelectByText(card);
             return this;
         }
 
@@ -103,7 +103,7 @@ namespace WebDrive
         public BookFlightPage ChooseExpirationMonth(string month)
         {
             var Month = new SelectElement(ExpireMonth);
-            Month.SelectByValue(month);
+            Month.SelectByText(month);
             return this;
         }
 
@@ -142,7 +142,7 @@ namespace WebDrive
             return this;
         }
 
-        public BookFlightPage InputSecondBillinfAddress(string secondAddress)
+        public BookFlightPage InputSecondBillingAddress(string secondAddress)
         {
             SecondBillingAddress.Click();
             SecondBillingAddress.SendKeys(secondAddress);
@@ -173,7 +173,7 @@ namespace WebDrive
         public BookFlightPage ChooseCountry(string country)
         {
             var Country = new SelectElement(Countries);
-            Country.SelectByValue(country);
+            Country.SelectByText(country);
             return this;
         }
 

@@ -10,16 +10,16 @@ namespace WebDrive
     {
         public FlightConfirmationPage(IWebDriver driver) : base(driver) {}
 
-        [FindsBy(How = How.CssSelector, Using= "(img[src*='mast_confirmation'])")]
-        private IWebElement FlightConfirmationHeader { get; [UsedImplicitly] set; }
+        [FindsBy(How = How.CssSelector, Using= "img[src*='mast_confirmation']")]
+        public IWebElement FlightConfirmationHeader { get; [UsedImplicitly] set; }
 
-        [FindsBy(How = How.CssSelector, Using ="(img[src*='backtoflights'])")]
+        [FindsBy(How = How.CssSelector, Using ="img[src*='backtoflights']")]
         private IWebElement BackToFlightsButton { get; [UsedImplicitly] set; }
 
-        [FindsBy(How = How.CssSelector, Using ="(img[src*='home'])")]
+        [FindsBy(How = How.CssSelector, Using ="img[src*='home']")]
         private IWebElement BackToHomeButton { get; [UsedImplicitly] set; }
 
-        [FindsBy(How = How.CssSelector, Using ="(img[src*='Logout'])")]
+        [FindsBy(How = How.CssSelector, Using ="img[src*='Logout']")]
         private IWebElement LogoutButton { get; [UsedImplicitly] set; }
 
         public FlightFinderPage ClickBackToFlightsButton()
