@@ -5,7 +5,6 @@ namespace WebDrive
     using OpenQA.Selenium;
     using SeleniumExtras.PageObjects;
     using JetBrains.Annotations;
-    using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.Interfaces;
     using OpenQA.Selenium.Support.UI;
 
     public class BookFlightPage : AbstractPage

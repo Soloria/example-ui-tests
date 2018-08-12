@@ -14,7 +14,7 @@ namespace WebDrive
         [FindsBy(How = How.CssSelector, Using = "img[src*='mast_flightfinder']")]
         public IWebElement FlightFinderHeader { get; [UsedImplicitly] set; }
 
-        [FindsBy(How = How.CssSelector, Using ="(input[type='radio'][value='oneway'])")]
+        [FindsBy(How = How.CssSelector, Using ="input[value='oneway']")]
         private IWebElement OneWayTripType { get; [UsedImplicitly] set; }
 
         [FindsBy(How = How.Name, Using = "passCount")]
@@ -24,15 +24,21 @@ namespace WebDrive
         private IWebElement DepartingFrom { get; [UsedImplicitly] set; }
 
         [FindsBy(How = How.Name, Using = "fromMonth")]
-        private IWebElement Months { get; [UsedImplicitly] set; }
+        private IWebElement MonthsOn { get; [UsedImplicitly] set; }
 
         [FindsBy(How = How.Name, Using = "fromDay")]
-        private IWebElement Days { get; [UsedImplicitly] set; }
+        private IWebElement DaysOn { get; [UsedImplicitly] set; }
 
         [FindsBy(How = How.Name, Using = "toPort")]
         private IWebElement ArrivingIn { get; [UsedImplicitly] set; }
 
-        [FindsBy(How = How.CssSelector, Using ="(input[type='radio'][value='Business'")]
+        [FindsBy(How = How.Name, Using = "toMonth")]
+        private IWebElement ReturningMonths { get; [UsedImplicitly] set; }
+
+        [FindsBy(How = How.Name, Using = "toDay")]
+        private IWebElement ReturningDays { get; [UsedImplicitly] set; }
+
+        [FindsBy(How = How.CssSelector, Using ="input[value='Business']")]
         private IWebElement BusinessServiceClass { get; [UsedImplicitly] set; }
 
         [FindsBy (How = How.Name, Using ="airline")]
@@ -42,7 +48,7 @@ namespace WebDrive
         private IWebElement ContinueButton { get; [UsedImplicitly] set; }
 
 
-        public FlightFinderPage ChooseOnewWayTripType()
+        public FlightFinderPage ChooseOneWayTripType()
         {
             OneWayTripType.Click();
             return this;
@@ -62,16 +68,16 @@ namespace WebDrive
             return this;
         }
 
-        public FlightFinderPage ChooseMonth(string month)
+        public FlightFinderPage ChooseMonthOn(string month)
         {
-            var Month = new SelectElement(Months);
+            var Month = new SelectElement(MonthsOn);
             Month.SelectByValue(month);
             return this;
         }
 
-        public FlightFinderPage ChooseDay(string day)
+        public FlightFinderPage ChooseDayOn(string day)
         {
-            var Day = new SelectElement(Days);
+            var Day = new SelectElement(DaysOn);
             Day.SelectByValue(day);
             return this;
         }
@@ -80,6 +86,20 @@ namespace WebDrive
         {
             var Port = new SelectElement(ArrivingIn);
             Port.SelectByValue(port);
+            return this;
+        }
+
+        public FlightFinderPage ChooseReturningMonth(string month)
+        {
+            var Month = new SelectElement(ReturningMonths);
+            Month.SelectByValue(month);
+            return this;
+        }
+
+        public FlightFinderPage ChooseReturningDay(string day)
+        {
+            var Day = new SelectElement(ReturningDays);
+            Day.SelectByValue(day);
             return this;
         }
 
@@ -92,7 +112,7 @@ namespace WebDrive
         public FlightFinderPage ChooseAirline(string airline)
         {
             var Airline = new SelectElement(Airlines);
-            Airline.SelectByValue(airline);
+            Airline.SelectByText(airline);
             return this;
         }
 
