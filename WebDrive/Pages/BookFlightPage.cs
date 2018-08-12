@@ -11,6 +11,9 @@ namespace WebDrive
     {
         public BookFlightPage(IWebDriver driver) : base(driver) {}
 
+        [FindsBy(How = How.CssSelector, Using = "img[src*='mast_book'")]
+        public IWebElement BookAFlightHeader { get; [UsedImplicitly] set; }
+
         [FindsBy(How = How.Name, Using = "passFirst0")]
         private IWebElement FirstNameField { get; [UsedImplicitly] set; }
 
