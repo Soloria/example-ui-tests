@@ -25,7 +25,7 @@
         {
             new FlightFinderPage(SessionManager.getDriver())
                 .ChooseOneWayTripType()
-                .ChoosePassengersCount("2")
+                .ChoosePassengersCount("1")
                 .ChooseDepartingFrom("Paris")
                 .ChooseMonthOn("11")
                 .ChooseDayOn("20")
@@ -47,6 +47,31 @@
                 .ChooseOutFlight()
                 .ClickContinueButton();
             Assert.IsTrue(new BookFlightPage(SessionManager.getDriver()).BookAFlightHeader.Displayed);
+        }
+
+        [Test]
+        [Order(order: 3)]
+        public void BookAFlight()
+        {
+            new BookFlightPage(SessionManager.getDriver())
+                .InputFirstName("Ivan")
+                .InputLastName("Ivanov")
+                .ChooseMealPreference("Hindu")
+                .ChooseCardType("Visa")
+                .InputCardNumber("88005553535")
+                .ChooseExpirationMonth("12")
+                .ChooseExpirationYear("2007")
+                .InputCardHolderFirstName("Ivan")
+                .InputCardHolderMiddleName("ivanovich")
+                .InputCardHolderLastName("Ivanov")
+                .InputFirstBillingAddress("Pushkin's street")
+                .InputSecondBillingAddress("Kolotushkin's house")
+                .InputCity("Moscow")
+                .InputState("CAO")
+                .InputPostalCode("14/88")
+                .ChooseCountry("UNITED STATES")
+                .ClickContinueButton();
+            Assert.IsTrue(new FlightConfirmationPage(SessionManager.getDriver()).FlightConfirmationHeader.Displayed);
         }
 
 
