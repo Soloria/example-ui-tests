@@ -9,7 +9,7 @@
         public static void Start() => SessionManager.Open(SessionManager.Path);
 
         [Test]
-        [Order(order: 1)]
+        [Order(order: 0)]
         public void LogIn()
         {
             new MainPage(SessionManager.getDriver())
@@ -20,7 +20,7 @@
         }
 
         [Test]
-        [Order(order: 2)]
+        [Order(order: 1)]
         public void EnterFlightDetails()
         {
             new FlightFinderPage(SessionManager.getDriver())
@@ -35,8 +35,20 @@
                 .ChooseBusinessClass()
                 .ChooseAirline("Pangea Airlines")
                 .ClickContinueButton();
-            Assert.IsTrue(new SelectFlightPage(SessionManager.getDriver()).HeaderBookAFlight.Displayed);
+            Assert.IsTrue(new SelectFlightPage(SessionManager.getDriver()).SelectFlightHeader.Displayed);
         }
+
+        [Test]
+        [Order(order: 2)]
+        public void SelectFlight()
+        {
+            new SelectFlightPage(SessionManager.getDriver())
+                .ChooseInFlight()
+                .ChooseOutFlight()
+                .ClickContinueButton();
+            Assert.IsTrue(new BookFlightPage(SessionManager.getDriver()).BookAFlightHeader.Displayed);
+        }
+
 
         [OneTimeTearDown]
         public static void Clean() => SessionManager.Close();
