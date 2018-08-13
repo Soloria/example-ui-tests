@@ -1,6 +1,5 @@
 ﻿namespace WebDrive
 {
-   
     using NUnit.Framework;
 
     public class ExampleCase
@@ -42,6 +41,7 @@
         [Order(order: 2)]
         public void SelectFlight()
         {
+            //TODO: Rework to a more flexible option in terms of choice
             new SelectFlightPage(SessionManager.getDriver())
                 .ChooseInFlight()
                 .ChooseOutFlight()
@@ -53,6 +53,7 @@
         [Order(order: 3)]
         public void BookAFlight()
         {
+            //TODO: Move some data to config
             new BookFlightPage(SessionManager.getDriver())
                 .InputFirstName("Ivan")
                 .InputLastName("Ivanov")
@@ -74,6 +75,7 @@
             Assert.IsTrue(new FlightConfirmationPage(SessionManager.getDriver()).FlightConfirmationHeader.Displayed);
         }
 
+        //TODO: Flight Confirmation test
 
         [OneTimeTearDown]
         public static void Clean() => SessionManager.Close();
