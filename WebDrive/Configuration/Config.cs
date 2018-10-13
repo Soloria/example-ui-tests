@@ -11,7 +11,7 @@ namespace WebDrive
             if (root != null) return;
             var builder = new ConfigurationBuilder()
                 .SetBasePath("C:\\Webdrive")
-                .AddJsonFile("config/config.json", optional: true, reloadOnChange: true);
+                .AddJsonFile("config.json", optional: false, reloadOnChange: true);
 
             root = builder.Build();
         }

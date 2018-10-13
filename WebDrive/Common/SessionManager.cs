@@ -1,4 +1,6 @@
 ﻿
+using System.Reflection;
+
 namespace WebDrive
 {
     using OpenQA.Selenium;
@@ -10,8 +12,9 @@ namespace WebDrive
 
         public static void Open(string text)
         {
+
             Config.StartUp();
-            _driver = new ChromeDriver();
+            _driver = new ChromeDriver(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
             _driver.Manage().Window.Maximize();
             _driver.Url = text;
         }

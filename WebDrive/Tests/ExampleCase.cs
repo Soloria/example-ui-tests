@@ -15,7 +15,7 @@
                 .InputName(Config.GetValue<string>("username"))
                 .InputPassword(Config.GetValue<string>("password"))
                 .ClickLoginButton();
-            Assert.IsTrue(new FlightFinderPage(SessionManager.getDriver()).FlightFinderHeader.Displayed);
+             Assert.IsTrue(new FlightFinderPage(SessionManager.getDriver()).FlightFinderHeader.Displayed);
         }
 
         [Test]
